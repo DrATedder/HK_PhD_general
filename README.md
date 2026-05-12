@@ -1,5 +1,5 @@
 # HK_PhD_general
-Single use scripts involved in HK PhD project.
+Single use (non-pipeline) scripts involved in HK PhD project.
 ---
 
 ## HK_cage_randomisation.py
@@ -20,5 +20,29 @@ Generates a semi-random sampling schedule with the following rules:
 **Output:**
 - Text of sampling strategy.
 - Visualisation of enclosure clustering.
+
+---
+## Cosinor_model_fitting.py
+
+Fits a cosnor model to single gene expression data sampled across a 24-hour period. Will accept multiple `tsv` files, generate per gene summary statistics (MESOR, Amplitude + SE, Acrophase radians, Acrophase hours, R2 and ZeroAMp pvalue) and publication quality `PDF` figures with each figure scaled to the same axis scales.
+
+**Input data requirements:**
+
+Column headers should be as follows:
+
+| mean | sd | cv | mean hk | sd hk | cv hk | ZT | expression ration (goi/hk) |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+
+
+**User editable settings:**
+
+
+```python
+folder = ""                   # folder with gene .tsv files
+show_points = True            # show raw data
+period = 24                   # circadian period
+save_summary = True           # save cosinor summary CSV
+save_figures = True           # export each plot as PDF
+```
 
 ---
